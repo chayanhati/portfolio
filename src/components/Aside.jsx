@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { GiCalendar, GiClawSlashes, GiMailbox, GiMayanPyramid, GiPhone } from "react-icons/gi";
 
 const Aside = () => {
+  const [active,setactive]=useState(false);
   return (
-    <aside className="sidebar">
+    <aside className={active ? "sidebar active" : "sidebar"}>
         <div className="sidebar-info">
           <figure className="avatar-box">
             <img
-              src={"/public/images/avatar-1.png"}
-              alt="Richard hanrick"
+              src={"/images/avatar-1.png"}
+              alt="chayan hati image"
               width="80"
             />
           </figure>
@@ -20,7 +22,7 @@ const Aside = () => {
             <p className="title">Web developer</p>
           </div>
 
-          <button className="info_more-btn" data-sidebar-btn>
+          <button className="info_more-btn" data-sidebar-btn onClick={()=>{setactive(!active)}}>
             <span>Show Contacts</span>
 
             <GiClawSlashes />

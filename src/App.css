@@ -360,6 +360,8 @@ main {
   box-shadow: var(--shadow-2);
   transition: var(--transition-1);
   z-index: 1;
+  display: none;
+  display: block;
 }
 
 .info_more-btn::before {
@@ -382,7 +384,7 @@ main {
 
 .sidebar-info_more {
   opacity: 0;
-  visibility: hidden;
+  visibility: visible;
   transition: var(--transition-2);
 }
 
@@ -746,16 +748,26 @@ main {
 
 .skills-title { margin-bottom: 20px; }
 
-.skills-list { padding: 20px; }
+.skills-list { 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
 
 
 .skills-item:not(:last-child) { margin-bottom: 15px; }
 
 .skill .title-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 8px;
+  width: 130px;
+  text-align: center;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  background-color: rgb(150, 146, 146);
+}
+
+.title-wrapper h5{
+  color: var(--smoky-black);
 }
 
 .skill .title-wrapper data {
@@ -936,6 +948,19 @@ main {
   font-weight: var(--fw-300);
 }
 
+.portfolio .github-button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.github-button .git-button{
+  background-color: var(--light-gray);
+  padding: 1rem 2rem;
+  border-radius: 20px;
+}
 
 
 
@@ -973,7 +998,8 @@ main {
 .blog-banner-box {
   width: 100%;
   height: 200px;
-  border-radius: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   overflow: hidden;
 }
 
@@ -982,6 +1008,8 @@ main {
   height: 100%;
   object-fit: cover;
   transition: var(--transition-1);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .blog-post-item > a:hover .blog-banner-box img { transform: scale(1.1); }
@@ -999,7 +1027,8 @@ main {
 .blog-meta :is(.blog-category, time) {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
-  font-weight: var(--fw-300);
+  font-weight: var(--fw-600);
+  margin-top: 10px;
 }
 
 .blog-meta .dot {
@@ -1151,7 +1180,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item { min-width: calc(33.33% - 10px); }
 
-
+  /**
+   * skill
+   */
+    
+  /* .skill .title-wrapper {
+    width: 130px;
+  } */
 
   /**
    * #PORTFOLIO, BLOG 
@@ -1259,15 +1294,18 @@ textarea.form-input::-webkit-resizer { display: none; }
     top: -30px;
     right: -30px;
     padding: 10px 15px;
+    visibility: hidden;
+    visibility: visible;
   }
-
   .info_more-btn span {
+    display: none;
     display: block;
     font-size: var(--fs-8);
   }
 
   .info_more-btn ion-icon { display: none; }
-
+  .info_more-btn ion-icon { display: block; }
+  
   .separator { margin: 32px 0; }
 
   .contacts-list { gap: 20px; }
@@ -1789,9 +1827,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
-}
-
-.a{
+}.a{
   opacity: 0.5;
   color: grey;
   font-size: 1.7rem;

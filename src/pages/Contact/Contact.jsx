@@ -1,24 +1,27 @@
+import {useState} from 'react'
 const Contact = () => {
-  const onSubmit = async (event) => {
+  const [result, setResult] = useState("Send Message");
+
+  const sendMessage = async (event) => {
     event.preventDefault();
+    setResult("Sending....");
     const formData = new FormData(event.target);
 
     formData.append("access_key", "d4c2831f-b3b2-4d19-8185-02979e19bf92");
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    const res = await fetch("https://api.web3forms.com/submit", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: json
-    }).then((res) => res.json());
+      body: formData
+    });
 
-    if (res.success) {
-      console.log("Success", res);
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Message Send");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult("Something wrong!!");
     }
   };
   return (
@@ -42,7 +45,7 @@ const Contact = () => {
       <section className="contact-form">
         <h3 className="h3 form-title">Contact Form</h3>
 
-        <form action="#" className="form" data-form>
+        <form onSubmit={sendMessage} action="#" className="form" data-form>
           <div className="input-wrapper">
             <input
               type="text"
@@ -73,7 +76,7 @@ const Contact = () => {
 
           <button className="form-btn" type="submit" data-form-btn>
             <ion-icon name="paper-plane"></ion-icon>
-            <span>Send Message</span>
+            {result}
           </button>
         </form>
       </section>

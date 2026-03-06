@@ -6,9 +6,24 @@
     "description": "The most modern and high-quality design made at a professional level."
   },
   {
-    "title": "Web development",
+    "title": "Front-End Development",
     "icon": "/images/icon-dev.svg",
-    "description": "High-quality development of sites at the professional level."
+    "description": "Create user interfaces using HTML, CSS, JavaScript, and React."
+  },
+  {
+    "title": "Back-End Development",
+    "icon": "/images/icon-dev.svg",
+    "description": "Build server-side applications with Node.js and Express."
+  },
+  {
+    "title": "Cloud-Native Technologies",
+    "icon": "/images/icon-design.svg",
+    "description": "Work with Docker, Kubernetes, and NoSQL databases for application deployment."
+  },
+  {
+    "title": "Implement DevOps Practices",
+    "icon": "/images/icon-design.svg",
+    "description": "Use Agile methodologies and CI/CD tools for software development."
   }
 ]
   
