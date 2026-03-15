@@ -10,6 +10,7 @@ This project showcases my skills, projects, and experience as a **Full-Stack Web
 🔗 **View Portfolio:**
 👉 https://portfolio-a919b.web.app/
 
+---
 
 ## 🛠️ Tech Stack
 
